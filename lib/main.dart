@@ -29,6 +29,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final data = const [
+    {"tgl": "02/03/2022", "nilai": "150"},
+    {"tgl": "01/02/2022", "nilai": "140"},
+    {"tgl": "12/01/2022", "nilai": "170"},
+    {"tgl": "11/12/2021", "nilai": "110"},
+    {"tgl": "10/11/2021", "nilai": "180"},
+    {"tgl": "09/10/2021", "nilai": "190"},
+    {"tgl": "08/09/2021", "nilai": "160"},
+    {"tgl": "07/08/2021", "nilai": "155"},
+    {"tgl": "06/07/2021", "nilai": "145"},
+    {"tgl": "05/06/2021", "nilai": "140"},
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -118,16 +131,42 @@ class _MyHomePageState extends State<MyHomePage> {
                     const SizedBox(height: 10),
                   ],
                 )),
-            Container(
-              child: const Text(
-                "Riwayat Tes",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 28,
-                    fontWeight: FontWeight.w700,
-                    letterSpacing: 0.25),
+            const Text(
+              "Riwayat Tes",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 28,
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: 0.25),
+            ),
+            SizedBox(
+              height: 420,
+              child: ListView.builder(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                itemCount: data.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const Text(
+                            "Tanggal test\nNilai:",
+                            style: TextStyle(color: Colors.blue, fontSize: 20),
+                          ),
+                          Text(
+                            "${data[index]["tgl"]!}\n${data[index]["nilai"]}",
+                            style: const TextStyle(
+                                color: Colors.blue, fontSize: 20),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                    ],
+                  );
+                },
               ),
-            )
+            ),
           ],
         ),
       ),
