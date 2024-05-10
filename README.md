@@ -1,4 +1,4 @@
-# week_10
+# week_10_flutter_layout
 
 A new Flutter project.
 
